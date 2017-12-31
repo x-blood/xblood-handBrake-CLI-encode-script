@@ -11,7 +11,7 @@ for file in `\find ${HANDBRAKECLI_INPUT_PATH} -maxdepth 1 -name '*.MOV'`; do
     echo ${INPUT_FILE_PATH_EXCLUDE_EXTENSION}
 
     # execute encoding by HandBrake-CLI
-    #HandBrake-CLI -i ${input_file_include_extension} -o ${input_file}.mp4
+    HandBrakeCLI -i ${INPUT_FILE_PATH_INCLUDE_EXTENSION} -o ${INPUT_FILE_PATH_EXCLUDE_EXTENSION}.mp4
 
     # move to finished directory
     mv ${INPUT_FILE_PATH_INCLUDE_EXTENSION} ${HANDBRAKECLI_INPUT_PATH}/finished/

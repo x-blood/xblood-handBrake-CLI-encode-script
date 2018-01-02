@@ -3,21 +3,22 @@
 ENCODED_FILE_COUNT=0
 
 # loop target files
-for file in `\find ${HANDBRAKECLI_INPUT_PATH} -maxdepth 1 -name '*.MOV'`; do
+for file in `\find ${HANDBRAKECLI_INPUT_PATH} -maxdepth 3 -name '*.MOV'`; do
     # get file name
     INPUT_FILE_PATH_INCLUDE_EXTENSION=${file}
     echo ${INPUT_FILE_PATH_INCLUDE_EXTENSION}
     INPUT_FILE_PATH_EXCLUDE_EXTENSION=$(echo ${file} | sed 's/\.[^\.]*$//')
     echo ${INPUT_FILE_PATH_EXCLUDE_EXTENSION}
 
-    # execute encoding by HandBrake-CLI
-    HandBrakeCLI -i ${INPUT_FILE_PATH_INCLUDE_EXTENSION} -o ${INPUT_FILE_PATH_EXCLUDE_EXTENSION}.mp4
+    # execute encoding by HandBrakeCLI
+    if [ ! -e ${INPUT_FILE_PATH_EXCLUDE_EXTENSION}.mp4 ]; then
+	HandBrakeCLI -i ${INPUT_FILE_PATH_INCLUDE_EXTENSION} -o ${INPUT_FILE_PATH_EXCLUDE_EXTENSION}.mp4
+	# if you want to move the source to finished directory, remove the comment out.
+	#mv ${INPUT_FILE_PATH_INCLUDE_EXTENSION} ${HANDBRAKECLI_INPUT_PATH}/finished/
 
-    # move to finished directory
-    mv ${INPUT_FILE_PATH_INCLUDE_EXTENSION} ${HANDBRAKECLI_INPUT_PATH}/finished/
-
-    # increment ENCODED_FILE_COUNT
-    ENCODED_FILE_COUNT=$(( ENCODED_FILE_COUNT + 1 ))
+	# increment ENCODED_FILE_COUNT
+	ENCODED_FILE_COUNT=$(( ENCODED_FILE_COUNT + 1 ))
+    fi
 done
 
 # send to Slack

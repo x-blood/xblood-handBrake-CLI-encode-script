@@ -13,4 +13,4 @@ bashを使用しています。よって、Windowsで動作させるにはGit Ba
 ## スケジュール設定
 cronで行なっています。<br>
 例）Macの設定例<br>
-0 0-23/3 * * * /usr/local/bin/bash -l -c 'env > /handBrake-CLI-script/handBrake-automate-encoding.sh'
+0 0-23/3 * * * /bin/bash -l /handBrake-CLI-script/handBrake-automate-encoding.sh

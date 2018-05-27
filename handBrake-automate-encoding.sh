@@ -6,7 +6,7 @@ ENCODED_FILE_COUNT=0
 for file in `\find ${HANDBRAKECLI_INPUT_PATH} -maxdepth 3 -name '*.MOV'`;
 do
   # If it is the maximum processing number, exit the loop
-  if [ ENCODED_FILE_COUNT -ge ${HANDBRAKECLI_MAX_FILE_COUNT} ]; then
+  if [ $ENCODED_FILE_COUNT -ge ${HANDBRAKECLI_MAX_FILE_COUNT} ]; then
     echo "exit loop"
     break
   fi

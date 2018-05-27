@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd `dirname $0`
+
 ENCODED_FILE_COUNT=0
 
 # loop target files

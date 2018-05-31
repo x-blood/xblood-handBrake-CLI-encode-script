@@ -21,11 +21,9 @@ bashを使用しています。よって、Windowsで動作させるにはGit Ba
 - "HandBrakeCLI"コマンドのパス
 
 環境に応じてパスを設定しておくこと。
-
 - HANDBRAKECLI_WEBHOOKURL
 
 SlackのWeb Hook URLを指定
-
 ## スケジュール設定
 cronで行なっています。<br>
 例）Macの設定例<br>
@@ -36,3 +34,6 @@ cronで行なっています。<br>
 cd "%ProgramFiles%\Git\bin\"
 sh -x D:\tech\xblood-handBrake-CLI-encode-script\handBrake-automate-encoding.sh
 ```
+
+## 参考サイト
+https://itjo.jp/pc/handbrake-rotate-movie

@@ -36,6 +36,14 @@ do
     # add to complete file list
     COMPLETE_FILE_LIST+="
     - $(echo ${INPUT_FILE_PATH_INCLUDE_EXTENSION} | sed 's/\\/\//g')"
+
+    # echo progress
+    echo "########################################################"
+    echo "#"
+    echo "ENCODED_FILE_COUNT : ${ENCODED_FILE_COUNT}"
+    echo "#"
+    echo "########################################################"
+
   fi
 done
 

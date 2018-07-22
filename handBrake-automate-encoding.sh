@@ -40,7 +40,9 @@ do
     # echo progress
     echo "########################################################"
     echo "#"
-    echo "ENCODED_FILE_COUNT : ${ENCODED_FILE_COUNT}"
+    echo "#"
+    echo "# ENCODED_FILE_COUNT : ${ENCODED_FILE_COUNT}"
+    echo "#"
     echo "#"
     echo "########################################################"
 

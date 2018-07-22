@@ -23,13 +23,9 @@ do
 
   # execute encoding by HandBrakeCLI
   if [ ! -e ${INPUT_FILE_PATH_EXCLUDE_EXTENSION}.mp4 ]; then
-    # if include "rotate" character in file name, add rotate option
-    if [ `echo ${INPUT_FILE_PATH_EXCLUDE_EXTENSION} | grep 'rotate5'` ]; then
-      #It's not working
-      HandBrakeCLI -i ${INPUT_FILE_PATH_INCLUDE_EXTENSION} -o ${INPUT_FILE_PATH_EXCLUDE_EXTENSION}.mp4 --rotate 5
-    else
-      HandBrakeCLI -i ${INPUT_FILE_PATH_INCLUDE_EXTENSION} -o ${INPUT_FILE_PATH_EXCLUDE_EXTENSION}.mp4
-    fi
+    # execute encoding
+    HandBrakeCLI -i ${INPUT_FILE_PATH_INCLUDE_EXTENSION} -o ${INPUT_FILE_PATH_EXCLUDE_EXTENSION}.mp4
+
     # increment ENCODED_FILE_COUNT
     ENCODED_FILE_COUNT=$(( ENCODED_FILE_COUNT + 1 ))
 
